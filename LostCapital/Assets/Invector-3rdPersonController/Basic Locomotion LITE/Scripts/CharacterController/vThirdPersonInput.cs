@@ -94,6 +94,7 @@ namespace Invector.CharacterController
                 JumpInput();
                 CrouchInput();
                 FlashUP_and_Down();
+                Dead();
             }
         }
 
@@ -152,6 +153,14 @@ namespace Invector.CharacterController
             else if(Input.GetKeyDown(flashPoint) && Flash.enabled == false)
             {
                 Flash.enabled = true;
+            }
+        }
+
+        protected virtual void Dead()
+        {
+            if(Input.GetKeyDown(changeFile))
+            {
+                cc.isDead = true;
             }
         }
 

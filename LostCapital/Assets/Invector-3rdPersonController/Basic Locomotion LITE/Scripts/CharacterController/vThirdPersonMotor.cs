@@ -223,10 +223,13 @@ namespace Invector.CharacterController
 
         void ControlLocomotion()
         {
-            if (freeLocomotionConditions)
-                FreeMovement();     // free directional movement
-            else
-                StrafeMovement();   // move forward, backwards, strafe left and right
+            if (!isDead)
+            {
+                if (freeLocomotionConditions)
+                    FreeMovement();     // free directional movement
+                else
+                    StrafeMovement();   // move forward, backwards, strafe left and right
+            }
         }
 
         void StrafeMovement()

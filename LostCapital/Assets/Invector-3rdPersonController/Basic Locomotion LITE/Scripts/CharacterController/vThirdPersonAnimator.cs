@@ -23,7 +23,6 @@ namespace Invector.CharacterController
                 // strafe movement get the input 1 or -1
                 animator.SetFloat("InputHorizontal", direction, 0.1f, Time.deltaTime);
             }
-
             // fre movement get the input 0 to 1
             animator.SetFloat("InputVertical", speed, 0.1f, Time.deltaTime);
         }

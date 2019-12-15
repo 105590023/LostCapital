@@ -12,6 +12,7 @@ namespace Invector.CharacterController
             animator.SetBool("IsStrafing", isStrafing);
             animator.SetBool("IsGrounded", isGrounded);
             animator.SetBool("IsCrouching", isCrouching);
+            animator.SetBool("IsDead", isDead);
             animator.SetFloat("GroundDistance", groundDistance);
 
             if (!isGrounded)
@@ -31,7 +32,7 @@ namespace Invector.CharacterController
         {
             // we implement this function to override the default root motion.
             // this allows us to modify the positional speed before it's applied.
-            if (isGrounded)
+            if (isGrounded && !isDead)
             {
                 transform.rotation = animator.rootRotation;
 

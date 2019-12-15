@@ -17,6 +17,9 @@ namespace Invector.CharacterController
         public KeyCode sprintInput = KeyCode.LeftShift;
         public KeyCode crouchInput = KeyCode.C;
         public KeyCode flashPoint = KeyCode.F;
+        public KeyCode changeFile = KeyCode.Q;
+        public KeyCode openSmallMap = KeyCode.M;
+        public KeyCode openMap = KeyCode.N;
 
 
         [Header("Camera Settings")]

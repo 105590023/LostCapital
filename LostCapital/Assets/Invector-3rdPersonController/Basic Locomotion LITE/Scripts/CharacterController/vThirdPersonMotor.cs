@@ -110,6 +110,11 @@ namespace Invector.CharacterController
         public bool
             isJumping;
 
+        // die bools
+        [HideInInspector]
+        public bool
+            isDead;
+
         protected void RemoveComponents()
         {
             if (_capsuleCollider != null) Destroy(_capsuleCollider);
@@ -227,9 +232,9 @@ namespace Invector.CharacterController
         void StrafeMovement()
         {
             var _speed = Mathf.Clamp(input.y, -1f, 1f);
-            if (isCrouching) { _speed = Mathf.Clamp(input.y, -0.5f, 0.5f); }
+            if (isCrouching) { _speed = Mathf.Clamp(input.y, -0.1f, 0.1f); }
             var _direction = Mathf.Clamp(input.x, -1f, 1f);
-            if (isCrouching) { _direction = Mathf.Clamp(input.x, -0.5f, 0.5f); }
+            if (isCrouching) { _direction = Mathf.Clamp(input.x, -0.1f, 0.1f); }
             speed = _speed;
             direction = _direction;
             if (isSprinting && !isCrouching) speed += 0.5f;

@@ -57,7 +57,7 @@ namespace Invector.CharacterController
 
         [Header("--- Movement Speed ---")]
         [Tooltip("Check to drive the character using RootMotion of the animation")]
-        public bool useRootMotion = false;      
+        public bool useRootMotion = false;
         [Tooltip("Add extra speed for the locomotion movement, keep this value at 0 if you want to use only root motion speed.")]
         public float freeWalkSpeed = 2.5f;
         [Tooltip("Add extra speed for the locomotion movement, keep this value at 0 if you want to use only root motion speed.")]
@@ -85,7 +85,7 @@ namespace Invector.CharacterController
         public float stepSmooth = 4f;
         [Tooltip("Max angle to walk")]
         [SerializeField]
-        protected float slopeLimit = 45f;       
+        protected float slopeLimit = 45f;
         [Tooltip("Apply extra gravity when the character is not grounded")]
         [SerializeField]
         protected float extraGravity = -10f;
@@ -114,6 +114,12 @@ namespace Invector.CharacterController
         [HideInInspector]
         public bool
             isDead;
+
+        [HideInInspector]
+        public int
+            Keynum=0,
+            rune_stone_num=0;
+
 
         protected void RemoveComponents()
         {
@@ -300,6 +306,17 @@ namespace Invector.CharacterController
             }
         }
 
+        #endregion
+
+        #region Trigger
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.name == "Key")
+            {
+                Keynum++;
+                print("Key =" + Keynum);
+            }
+        }
         #endregion
 
         #region Jump Methods

@@ -1,0 +1,4 @@
+新增item的perfers
+用途:顯示地板物件、跟主角互動
+用法:把想要的圖轉成Materals直接放入這個item
+	 Item Floating(Script)底下有個_Clip，這個是撿起來的音效，拿mp3檔放入即可。

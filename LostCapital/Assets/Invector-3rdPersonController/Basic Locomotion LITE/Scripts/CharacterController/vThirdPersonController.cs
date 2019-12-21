@@ -52,5 +52,10 @@ namespace Invector.CharacterController
             else if(!isCrouching) { isCrouching = true; }
         }
 
+        public virtual void InteractiveItem()
+        {
+
+        }
+
     }
 }

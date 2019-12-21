@@ -17,6 +17,7 @@ namespace Invector.CharacterController
         public KeyCode sprintInput = KeyCode.LeftShift;
         public KeyCode crouchInput = KeyCode.C;
         public KeyCode flashPoint = KeyCode.F;
+        public KeyCode interactive = KeyCode.E;
         public KeyCode changeFile = KeyCode.Q;
         public KeyCode openSmallMap = KeyCode.M;
         public KeyCode openMap = KeyCode.N;
@@ -95,6 +96,7 @@ namespace Invector.CharacterController
                 CrouchInput();
                 FlashUP_and_Down();
                 Dead();
+                Interactive();
             }
         }
 
@@ -124,6 +126,12 @@ namespace Invector.CharacterController
         {
             if (Input.GetKeyDown(jumpInput))
                 cc.Jump();
+        }
+
+        protected virtual void Interactive()
+        {
+            if (Input.GetKeyDown(interactive))
+                cc.InteractiveItem();
         }
 
         protected virtual void ExitGameInput()

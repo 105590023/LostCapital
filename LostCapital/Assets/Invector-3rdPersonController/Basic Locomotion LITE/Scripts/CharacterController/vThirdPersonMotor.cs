@@ -172,6 +172,11 @@ namespace Invector.CharacterController
 
         #endregion
 
+        #region Test
+        Ray myRay;
+        RaycastHit RayHit;
+        #endregion
+
         #endregion
 
         public void Init()
@@ -214,6 +219,7 @@ namespace Invector.CharacterController
             CheckGround();
             ControlJumpBehaviour();
             ControlLocomotion();
+            Ray();
         }
 
         #region Locomotion 
@@ -315,6 +321,18 @@ namespace Invector.CharacterController
             {
                 Keynum++;
                 print("Key =" + Keynum);
+            }
+        }
+        #endregion
+
+        #region Test Ray
+        private void Ray()
+        {
+            Vector3 fwd = transform.TransformDirection(0,1,2);
+            if(Physics.Raycast(transform.position, fwd,out RayHit, 1.5f))
+            {
+                Debug.DrawLine(transform.position, RayHit.point,Color.red);
+                Debug.Log(RayHit.transform.name);
             }
         }
         #endregion

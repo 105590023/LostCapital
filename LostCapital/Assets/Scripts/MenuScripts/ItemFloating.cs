@@ -1,6 +1,9 @@
-﻿using System.Collections;
+﻿using Invector.CharacterController;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 
 public class ItemFloating : MonoBehaviour {
 
@@ -10,6 +13,7 @@ public class ItemFloating : MonoBehaviour {
     float radius = 0.3f; // 半径
     public AudioClip _Clip;
     private AudioSource TakeKey;
+    protected vThirdPersonMotor cc;
     Vector3 oldPos; // 开始时候的坐标
                     // Use this for initialization
     void Start()
@@ -29,7 +33,7 @@ public class ItemFloating : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)         //人物觸碰到物件
     {
-        if(other.name == "Ray")
+        if(other.name == "Ray" )
         {
             Renderer[] renderers = GetComponentsInChildren<Renderer>();
             foreach (Renderer r in renderers)

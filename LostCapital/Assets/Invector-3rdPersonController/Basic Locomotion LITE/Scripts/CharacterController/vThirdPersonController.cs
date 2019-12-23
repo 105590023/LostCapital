@@ -54,7 +54,10 @@ namespace Invector.CharacterController
 
         public virtual void InteractiveItem()
         {
-
+            if (RayHit.transform == null)
+                Debug.Log("NULL");
+            else
+                Debug.Log(RayHit.transform.name);
         }
 
     }

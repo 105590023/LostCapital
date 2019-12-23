@@ -172,9 +172,32 @@ namespace Invector.CharacterController
 
         #endregion
 
-        #region Test
-        Ray myRay;
-        RaycastHit RayHit;
+        #region Ray
+        [HideInInspector]
+        public Ray myRay;
+        [HideInInspector]
+        public RaycastHit RayHit;
+        #endregion
+
+        #region item
+        [HideInInspector]
+        public String First_Prop;
+        [HideInInspector]
+        public String Second_Prop;
+        [HideInInspector]
+        public String Bright_stone = "bright_stone";
+        [HideInInspector]
+        public String Cat_eye = "cat_eye";
+        [HideInInspector]
+        public String Enhance_potion = "enhance_potion";
+        [HideInInspector]
+        public String Key = "key";
+        [HideInInspector]
+        public String Rune_stone = "rune_stone";
+        [HideInInspector]
+        public String Shadow_leaf = "shadow_leaf";
+        [HideInInspector]
+        public String White_lily = "white_lily";
         #endregion
 
         #endregion
@@ -322,6 +345,23 @@ namespace Invector.CharacterController
                 Keynum++;
                 print("Key =" + Keynum);
             }
+            else if(other != null)
+            {
+                if(String.IsNullOrEmpty(First_Prop))
+                {
+                    First_Prop = other.name;
+                    Debug.Log(First_Prop);
+                }
+                else if(!(String.IsNullOrEmpty(First_Prop)) && String.IsNullOrEmpty(Second_Prop))
+                {
+                    Second_Prop = other.name;
+                    Debug.Log(Second_Prop);
+                }
+                else
+                {
+                    Debug.Log("道具欄已滿~");
+                }
+            }
         }
         #endregion
 
@@ -332,7 +372,7 @@ namespace Invector.CharacterController
             if(Physics.Raycast(transform.position, fwd,out RayHit, 1.5f))
             {
                 Debug.DrawLine(transform.position, RayHit.point,Color.red);
-                Debug.Log(RayHit.transform.name);
+                
             }
         }
         #endregion

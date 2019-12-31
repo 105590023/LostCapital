@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 namespace Invector.CharacterController
 {
@@ -55,9 +56,59 @@ namespace Invector.CharacterController
         public virtual void InteractiveItem()
         {
             if (RayHit.transform == null)
+            {
                 Debug.Log("NULL");
-            else
+                useItem();
+            }
+            else if (RayHit.transform.tag == "Door")
+            {
+                Debug.Log("FBI Open UP");
                 Debug.Log(RayHit.transform.name);
+            }
+            else
+            {
+                Debug.Log(RayHit.transform.name);
+            }
+        }
+
+        public virtual void ThrowItem()
+        { 
+            if (String.IsNullOrEmpty(First_Prop))
+            {
+                Debug.Log("沒有東西啦幹!");
+            }
+            else if (String.IsNullOrEmpty(Second_Prop))
+            {
+                First_Prop = null;
+                Debug.Log("身上得東西" + First_Prop + " " + Second_Prop);
+            }
+            else if (!(String.IsNullOrEmpty(Second_Prop)))
+            {
+                Debug.Log("抓到 亂丟垃圾");
+                First_Prop = Second_Prop;
+                Second_Prop = null;
+                Debug.Log("身上得東西" + First_Prop +" "+ Second_Prop);
+            }
+        }
+
+        public virtual void changeitem()
+        {
+            if (String.IsNullOrEmpty(First_Prop))
+            {
+                Debug.Log("沒有東西啦幹!");
+            }
+            else if (String.IsNullOrEmpty(Second_Prop))
+            {
+                Debug.Log("身上得東西 第一樣 : " + First_Prop + " 第二樣 : " + Second_Prop);
+            }
+            else if (!(String.IsNullOrEmpty(Second_Prop)))
+            {
+                Debug.Log("交換東西~");
+                wait_Prop = First_Prop;
+                First_Prop = Second_Prop;
+                Second_Prop = wait_Prop;
+                Debug.Log("身上得東西" + First_Prop + " " + Second_Prop);
+            }
         }
 
     }

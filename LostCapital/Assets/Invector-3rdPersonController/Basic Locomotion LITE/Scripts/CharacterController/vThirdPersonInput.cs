@@ -21,6 +21,7 @@ namespace Invector.CharacterController
         public KeyCode changeFile = KeyCode.Q;
         public KeyCode openSmallMap = KeyCode.M;
         public KeyCode openMap = KeyCode.N;
+        public KeyCode throwaway = KeyCode.Z;
 
 
         [Header("Camera Settings")]
@@ -95,8 +96,9 @@ namespace Invector.CharacterController
                 JumpInput();
                 CrouchInput();
                 FlashUP_and_Down();
-                Dead();
+                Throw();
                 Interactive();
+                changeItem();
             }
         }
 
@@ -164,11 +166,19 @@ namespace Invector.CharacterController
             }
         }
 
-        protected virtual void Dead()
+        protected virtual void Throw()
         {
-            if(Input.GetKeyDown(changeFile))
+            if (Input.GetKeyDown(throwaway))
             {
-                cc.isDead = true;
+                cc.ThrowItem();
+            }
+        }
+
+        protected virtual void changeItem()
+        {
+            if (Input.GetKeyDown(changeFile))
+            {
+                cc.changeitem();
             }
         }
 

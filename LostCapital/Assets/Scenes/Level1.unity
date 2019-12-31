@@ -1488,6 +1488,7 @@ MonoBehaviour:
   velocity: 0
   First_Prop: 
   Second_Prop: 
+  wait_Prop: 
   Bright_stone: bright_stone
   Cat_eye: cat_eye
   Enhance_potion: enhance_potion
@@ -1495,6 +1496,18 @@ MonoBehaviour:
   Rune_stone: rune_stone
   Shadow_leaf: shadow_leaf
   White_lily: white_lily
+  CatEye_Buff_time: 15
+  use_CatEye: 15
+  Potion_Buff_time: 10
+  use_Postion: 10
+  ShadowLeaf_Buff_time: 20
+  use_ShadowLeaf: 20
+  WhiteLily_Buff_time: 5
+  use_WhiteLily: 5
+  isCatEye_Buff: 0
+  isPotion_Buff: 0
+  isShadowLeaf_Buff: 0
+  isWhiteLily_Buff: 0
 --- !u!114 &257517684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1517,6 +1530,7 @@ MonoBehaviour:
   changeFile: 113
   openSmallMap: 109
   openMap: 110
+  throwaway: 122
   rotateCameraXInput: Mouse X
   rotateCameraYInput: Mouse Y
   customCameraState: 
@@ -1524,7 +1538,7 @@ MonoBehaviour:
   changeCameraState: 0
   smoothCameraState: 0
   keepDirection: 0
-  Flash: {fileID: 1019104987}
+  Flash: {fileID: 0}
 --- !u!4 &257517686 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4403719983746794, guid: db32d569f13b59240a1349c82b7fb67c,
@@ -2362,9 +2376,9 @@ GameObject:
   - component: {fileID: 456544379}
   - component: {fileID: 456544378}
   - component: {fileID: 456544376}
-  - component: {fileID: 456544380}
   - component: {fileID: 456544377}
   - component: {fileID: 456544381}
+  - component: {fileID: 456544380}
   m_Layer: 0
   m_Name: Key
   m_TagString: Untagged
@@ -2446,7 +2460,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 456544375}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbedb8d3bf3322f4d972f54c7e265439, type: 3}
+  m_Script: {fileID: 11500000, guid: e5ce081d62afc3d41b95fceb8e676cf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _Clip: {fileID: 8300000, guid: 11d9f85d4ddbbcd4b89b0cbc7e0b138e, type: 3}
@@ -2799,7 +2813,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 524723791}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.02, y: 0.009, z: 0.025}
+  m_LocalPosition: {x: -0.032, y: 0.009, z: 0.025}
   m_LocalScale: {x: 0.012, y: 0.012, z: 1}
   m_Children: []
   m_Father: {fileID: 1506041774}
@@ -2913,6 +2927,11 @@ Prefab:
       propertyPath: _Clip
       value: 
       objectReference: {fileID: 8300000, guid: 12b20ca72c496b84d8b8bc0c31d62b70, type: 3}
+    - target: {fileID: 114134340415133044, guid: 54fd7e90634365e4ab5e7611db89db71,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 257517680}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 54fd7e90634365e4ab5e7611db89db71, type: 2}
   m_IsPrefabParent: 0
@@ -3025,6 +3044,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1199514606151728, guid: 1fef2837f23c7514fba9fc4266a9c5a3, type: 2}
+      propertyPath: m_TagString
+      value: Door
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1fef2837f23c7514fba9fc4266a9c5a3, type: 2}
   m_IsPrefabParent: 0
@@ -3081,6 +3104,11 @@ Prefab:
       propertyPath: _Clip
       value: 
       objectReference: {fileID: 8300000, guid: 0fb8888b475483a459ee4d31e533cb9a, type: 3}
+    - target: {fileID: 114134340415133044, guid: 54fd7e90634365e4ab5e7611db89db71,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 257517680}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 54fd7e90634365e4ab5e7611db89db71, type: 2}
   m_IsPrefabParent: 0
@@ -5115,6 +5143,11 @@ Prefab:
       propertyPath: spreadCustomCurve.m_RotationOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114134340415133044, guid: 54fd7e90634365e4ab5e7611db89db71,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 257517680}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 54fd7e90634365e4ab5e7611db89db71, type: 2}
   m_IsPrefabParent: 0
@@ -6306,6 +6339,11 @@ Prefab:
       propertyPath: spreadCustomCurve.m_RotationOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114134340415133044, guid: 54fd7e90634365e4ab5e7611db89db71,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 257517680}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 54fd7e90634365e4ab5e7611db89db71, type: 2}
   m_IsPrefabParent: 0
@@ -7467,6 +7505,22 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 1729279319245438, guid: 45d02ca1468652f4b9c102ac39705bad, type: 2}
+      propertyPath: m_TagString
+      value: Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 1173336558853920, guid: 45d02ca1468652f4b9c102ac39705bad, type: 2}
+      propertyPath: m_TagString
+      value: Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000381174115792, guid: 45d02ca1468652f4b9c102ac39705bad, type: 2}
+      propertyPath: m_TagString
+      value: Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 1903036178243842, guid: 45d02ca1468652f4b9c102ac39705bad, type: 2}
+      propertyPath: m_TagString
+      value: Door
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 45d02ca1468652f4b9c102ac39705bad, type: 2}
   m_IsPrefabParent: 0
@@ -7828,8 +7882,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4c92ffdbc6eb2d48beef0c07de4f173, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxPower: 10
-  power: 10
+  MaxPower: 0
+  power: 0
 --- !u!1001 &1918942637
 Prefab:
   m_ObjectHideFlags: 0
@@ -7883,6 +7937,11 @@ Prefab:
       propertyPath: _Clip
       value: 
       objectReference: {fileID: 8300000, guid: 99eccecf0f2b3f044b3c3ebef0cea166, type: 3}
+    - target: {fileID: 114134340415133044, guid: 54fd7e90634365e4ab5e7611db89db71,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 257517680}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 54fd7e90634365e4ab5e7611db89db71, type: 2}
   m_IsPrefabParent: 0

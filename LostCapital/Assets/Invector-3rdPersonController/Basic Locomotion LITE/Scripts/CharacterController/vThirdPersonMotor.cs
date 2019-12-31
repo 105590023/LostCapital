@@ -185,6 +185,8 @@ namespace Invector.CharacterController
         [HideInInspector]
         public String Second_Prop;
         [HideInInspector]
+        public String wait_Prop;
+        [HideInInspector]
         public String Bright_stone = "bright_stone";
         [HideInInspector]
         public String Cat_eye = "cat_eye";
@@ -198,6 +200,23 @@ namespace Invector.CharacterController
         public String Shadow_leaf = "shadow_leaf";
         [HideInInspector]
         public String White_lily = "white_lily";
+        #endregion
+
+        #region Buff
+        public float
+            CatEye_Buff_time = 15.0f,
+            use_CatEye = 15.0f,
+            Potion_Buff_time = 10.0f,
+            use_Postion = 10.0f,
+            ShadowLeaf_Buff_time = 20.0f,
+            use_ShadowLeaf = 20.0f,
+            WhiteLily_Buff_time = 5.0f,
+            use_WhiteLily = 5.0f;
+        public bool
+            isCatEye_Buff=false,
+            isPotion_Buff = false,
+            isShadowLeaf_Buff = false,
+            isWhiteLily_Buff = false;
         #endregion
 
         #endregion
@@ -243,6 +262,7 @@ namespace Invector.CharacterController
             ControlJumpBehaviour();
             ControlLocomotion();
             Ray();
+            Buff();
         }
 
         #region Locomotion 
@@ -276,6 +296,7 @@ namespace Invector.CharacterController
             speed = _speed;
             direction = _direction;
             if (isSprinting && !isCrouching) speed += 0.5f;
+            if (isPotion_Buff) speed += 1.0f;
             if (direction >= 0.7 || direction <= -0.7 || speed <= 0.1) isSprinting = false;
         }
 
@@ -287,7 +308,8 @@ namespace Invector.CharacterController
             if (isCrouching) { speed = Mathf.Clamp(speed, 0, 0.5f); }
             // add 0.5f on sprint to change the animation on animator
             if (isSprinting && !isCrouching) speed += 0.5f;
-                        
+            if (isPotion_Buff) speed += 1.0f;
+
             if (input != Vector2.zero && targetDirection.magnitude > 0.1f)
             {
                 Vector3 lookDirection = targetDirection.normalized;
@@ -345,6 +367,17 @@ namespace Invector.CharacterController
                 Keynum++;
                 print("Key =" + Keynum);
             }
+            else if(other.tag == "arms")
+            {
+                if (isWhiteLily_Buff)
+                {
+                    Debug.Log("哈哈  我無敵拉幹");
+                }
+                else
+                {
+                    isDead = true;
+                }
+            }
             else if(other != null)
             {
                 if(String.IsNullOrEmpty(First_Prop))
@@ -374,6 +407,87 @@ namespace Invector.CharacterController
                 Debug.DrawLine(transform.position, RayHit.point,Color.red);
                 
             }
+        }
+
+        public void useItem()
+        {
+            if(First_Prop == "cat_eye")
+            {
+                isCatEye_Buff = true;
+                First_Prop = Second_Prop;
+                Second_Prop = null;
+            }
+            else if(First_Prop == "enhance_potion")
+            {
+                isPotion_Buff = true;
+                First_Prop = Second_Prop;
+                Second_Prop = null;
+            }
+            else if(First_Prop == "shadow_leaf")
+            {
+                isShadowLeaf_Buff = true;
+                First_Prop = Second_Prop;
+                Second_Prop = null;
+            }
+            else if(First_Prop == "white_lily")
+            {
+                isWhiteLily_Buff = true;
+                First_Prop = Second_Prop;
+                Second_Prop = null;
+            }
+            else if (String.IsNullOrEmpty(First_Prop))
+            {
+                Debug.Log("幹你娘就沒東西，想要BUFF阿");
+            }
+        }
+
+        private void Buff()
+        {
+            if (isCatEye_Buff)
+            {
+                Debug.Log("CatBuff UP");
+                use_CatEye -= Time.deltaTime;
+                if(use_CatEye <= 0)
+                {
+                    isCatEye_Buff = false;
+                    use_CatEye = CatEye_Buff_time;
+                    Debug.Log("CatBuff Dwon");
+                }
+            }
+            if(isPotion_Buff)
+            {
+                Debug.Log("PotionBuff UP");
+                use_Postion -= Time.deltaTime;
+                if (use_Postion <= 0)
+                {
+                    isPotion_Buff = false;
+                    use_Postion = Potion_Buff_time;
+                    Debug.Log("PotionBuff Down");
+                }
+            }
+            if (isShadowLeaf_Buff)
+            {
+                Debug.Log("ShadowBuff Up");
+                use_ShadowLeaf -= Time.deltaTime;
+                if (use_ShadowLeaf <=0)
+                {
+                    isShadowLeaf_Buff = false;
+                    use_ShadowLeaf = ShadowLeaf_Buff_time;
+                    Debug.Log("ShadowBuff Down");
+                }
+            }
+            if(isWhiteLily_Buff)
+            {
+                Debug.Log("shadowBuff Up");
+                use_WhiteLily -= Time.deltaTime;
+                if (use_WhiteLily <= 0)
+                {
+                    isWhiteLily_Buff = false;
+                    use_WhiteLily = WhiteLily_Buff_time;
+                    Debug.Log("shadowBuff Down");
+                }
+            }
+
         }
         #endregion
 

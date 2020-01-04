@@ -115,6 +115,9 @@ namespace Invector.CharacterController
         public bool
             isDead;
 
+        public bool
+            isOpenDoor;
+
         [HideInInspector]
         public int
             Keynum=0,
@@ -263,6 +266,25 @@ namespace Invector.CharacterController
             ControlLocomotion();
             Ray();
             Buff();
+        }
+
+        private void Update()
+        {
+            if (RayHit.transform.tag == "Door_L" || RayHit.transform.tag == "Door_R"|| RayHit.transform.tag == "IronDoor_R"|| RayHit.transform.tag == "IronDoor_L")
+            {
+                isOpenDoor = true;
+                Debug.Log("isOpen" + isOpenDoor);
+            }
+            else if(RayHit.transform.tag ==null)
+            {
+                isOpenDoor = false;
+                Debug.Log("isOpen" + isOpenDoor);
+            }
+            else
+            {
+                isOpenDoor = false;
+                Debug.Log("isOpen" + isOpenDoor);
+            }
         }
 
         #region Locomotion 

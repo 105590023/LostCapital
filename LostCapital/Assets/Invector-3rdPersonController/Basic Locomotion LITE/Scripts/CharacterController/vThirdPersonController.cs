@@ -60,10 +60,11 @@ namespace Invector.CharacterController
                 Debug.Log("NULL");
                 useItem();
             }
-            else if (RayHit.transform.tag == "Door")
+            else if (RayHit.transform.tag == "Door_L" || RayHit.transform.tag == "Door_R")
             {
                 Debug.Log("FBI Open UP");
                 Debug.Log(RayHit.transform.name);
+                
             }
             else
             {

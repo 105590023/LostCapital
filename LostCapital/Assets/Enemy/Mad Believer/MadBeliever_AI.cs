@@ -8,8 +8,6 @@ public class MadBeliever_AI : MonoBehaviour {
     public float Move_Distence = 5;
     float nsp;
     public GameObject enemy;
-    //public Rigidbody Rb;
-    float tx, ty;
     int state = 0;
 
     // Use this for initialization
@@ -41,13 +39,15 @@ public class MadBeliever_AI : MonoBehaviour {
             transform.Translate(new Vector3(0, 0, nsp * Time.deltaTime));
             transform.rotation = Quaternion.LookRotation(nTD);
             if (nsp < 3f) nsp = nsp + 0.3f * Time.deltaTime;
-            print(nsp);
         }
         if (state == 2) //Attack
         {
+            if (ani.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+            {
+                transform.rotation = Quaternion.LookRotation(nTD);
+            }
             ani.SetBool("IsAttack", true);
             ani.SetBool("IsMove", false);
-            ani.SetTrigger("Attack");
             nsp = sp;
         }
     }
@@ -55,7 +55,7 @@ public class MadBeliever_AI : MonoBehaviour {
     void SetState()
     {
         float dis = Distence();
-        if (dis < Move_Distence && !(ani.GetCurrentAnimatorStateInfo(0).IsName("Standing_Attack") || ani.GetCurrentAnimatorStateInfo(0).IsName("Dash_Attack")))
+        if (dis < Move_Distence && !(ani.GetCurrentAnimatorStateInfo(0).IsName("Standing_Attack")))
         {
             state = 1;
         }
@@ -63,7 +63,6 @@ public class MadBeliever_AI : MonoBehaviour {
         if (dis < 1.3f)
         {
             state = 2;
-            print("state = 2");
         }
 
     }

@@ -270,14 +270,15 @@ namespace Invector.CharacterController
 
         private void Update()
         {
-            if (RayHit.transform.tag == "Door_L" || RayHit.transform.tag == "Door_R"|| RayHit.transform.tag == "IronDoor_R"|| RayHit.transform.tag == "IronDoor_L")
-            {
-                isOpenDoor = true;
-                Debug.Log("isOpen" + isOpenDoor);
-            }
-            else if(RayHit.transform.tag ==null)
+            
+            if(RayHit.transform==null)
             {
                 isOpenDoor = false;
+                Debug.Log("isOpen" + isOpenDoor);
+            }
+            else if (RayHit.transform.tag == "Door_L" || RayHit.transform.tag == "Door_R" || RayHit.transform.tag == "IronDoor_R" || RayHit.transform.tag == "IronDoor_L")
+            {
+                isOpenDoor = true;
                 Debug.Log("isOpen" + isOpenDoor);
             }
             else
@@ -451,7 +452,7 @@ namespace Invector.CharacterController
                 First_Prop = Second_Prop;
                 Second_Prop = null;
             }
-            else if(First_Prop == "white_lily")
+            else if(First_Prop == "White_Lily")
             {
                 isWhiteLily_Buff = true;
                 First_Prop = Second_Prop;
@@ -500,13 +501,13 @@ namespace Invector.CharacterController
             }
             if(isWhiteLily_Buff)
             {
-                Debug.Log("shadowBuff Up");
+                Debug.Log("無敵Buff Up");
                 use_WhiteLily -= Time.deltaTime;
                 if (use_WhiteLily <= 0)
                 {
                     isWhiteLily_Buff = false;
                     use_WhiteLily = WhiteLily_Buff_time;
-                    Debug.Log("shadowBuff Down");
+                    Debug.Log("無敵Buff Down");
                 }
             }
 

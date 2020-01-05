@@ -54,17 +54,21 @@ namespace Invector.CharacterController
         }
 
         public virtual void InteractiveItem()
-        {
-            if (RayHit.transform == null)
+        { 
+            if(RayHit.transform ==null || RayHit.transform.tag =="Untagged")
             {
                 Debug.Log("NULL");
                 useItem();
+            }
+            else if (RayHit.transform.name == "Cylinder")
+            {
+                Debug.Log("聽話!讓我看看!");
             }
             else if (RayHit.transform.tag == "Door_L" || RayHit.transform.tag == "Door_R")
             {
                 Debug.Log("FBI Open UP");
                 Debug.Log(RayHit.transform.name);
-                
+
             }
             else
             {

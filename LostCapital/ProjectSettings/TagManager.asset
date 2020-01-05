@@ -9,6 +9,8 @@ TagManager:
   - Door_L
   - IronDoor_L
   - IronDoor_R
+  - board
+  - NULL
   layers:
   - Default
   - TransparentFX

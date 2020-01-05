@@ -15,11 +15,16 @@ public class Borad : MonoBehaviour {
 
     public void ControllBorad()
     {
-        if (cc.RayHit.transform.name == "Cylinder" && BoradUI.activeSelf==false && Input.GetKeyDown(KeyCode.E))
+        if (cc.RayHit.transform == null)
+        {
+            Debug.Log("");
+        }
+        else if (cc.RayHit.transform.name == "Cylinder" && BoradUI.activeSelf==false && Input.GetKeyDown(KeyCode.E))
         {
             Cursor.visible = true;
             BoradUI.SetActive(true);
         }
+        
     }
 
     public void Onclick()

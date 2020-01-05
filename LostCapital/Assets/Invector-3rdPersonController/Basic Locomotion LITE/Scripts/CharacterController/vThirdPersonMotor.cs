@@ -116,7 +116,8 @@ namespace Invector.CharacterController
             isDead;
 
         public bool
-            isOpenDoor;
+            isOpenDoor,
+            isReadyOpen;
 
         [HideInInspector]
         public int
@@ -203,6 +204,8 @@ namespace Invector.CharacterController
         public String Shadow_leaf = "shadow_leaf";
         [HideInInspector]
         public String White_lily = "white_lily";
+        [HideInInspector]
+        public String _GameObject = "";
         #endregion
 
         #region Buff
@@ -211,6 +214,8 @@ namespace Invector.CharacterController
             use_CatEye = 15.0f,
             Potion_Buff_time = 10.0f,
             use_Postion = 10.0f,
+            openDoorTime=-1.0f,
+            openDoor=2.0f,
             ShadowLeaf_Buff_time = 20.0f,
             use_ShadowLeaf = 20.0f,
             WhiteLily_Buff_time = 5.0f,
@@ -273,18 +278,36 @@ namespace Invector.CharacterController
             
             if(RayHit.transform==null)
             {
-                isOpenDoor = false;
                 Debug.Log("isOpen" + isOpenDoor);
             }
             else if (RayHit.transform.tag == "Door_L" || RayHit.transform.tag == "Door_R" || RayHit.transform.tag == "IronDoor_R" || RayHit.transform.tag == "IronDoor_L")
             {
-                isOpenDoor = true;
+                isReadyOpen = true;
                 Debug.Log("isOpen" + isOpenDoor);
             }
             else
             {
-                isOpenDoor = false;
+                isReadyOpen = false;
                 Debug.Log("isOpen" + isOpenDoor);
+            }
+            if (isReadyOpen && Input.GetKeyDown(KeyCode.E))
+            {
+                _GameObject = RayHit.transform.tag;
+                openDoorTime = openDoor;
+                isOpenDoor = true;
+            }
+            if (isOpenDoor)
+            {
+                openDoorTime -= Time.deltaTime;
+                if (openDoorTime < 0)
+                {
+                    isOpenDoor = false;
+                    if(_GameObject=="IronDoor_L"|| _GameObject == "IronDoor_R")
+                    {
+                        Keynum--;
+                        Debug.Log("Key=" + Keynum);
+                    }
+                }
             }
         }
 

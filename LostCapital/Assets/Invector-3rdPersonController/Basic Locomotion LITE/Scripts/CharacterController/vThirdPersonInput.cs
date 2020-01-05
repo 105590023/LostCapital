@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 #if UNITY_5_3_OR_NEWER
 using UnityEngine.SceneManagement;
 #endif
@@ -21,6 +22,7 @@ namespace Invector.CharacterController
         public KeyCode changeFile = KeyCode.Q;
         public KeyCode openSmallMap = KeyCode.M;
         public KeyCode openMap = KeyCode.N;
+        public KeyCode Mouse = KeyCode.P;
         public KeyCode throwaway = KeyCode.Z;
 
 
@@ -102,6 +104,8 @@ namespace Invector.CharacterController
             }
         }
 
+       
+
         #region Basic Locomotion Inputs      
 
         protected virtual void MoveCharacter()
@@ -112,34 +116,34 @@ namespace Invector.CharacterController
 
         protected virtual void StrafeInput()
         {
-            if (Input.GetKeyDown(strafeInput))
+            if (Input.GetKeyDown(strafeInput) && !cc.isDead)
                 cc.Strafe();
         }
 
         protected virtual void SprintInput()
         {
-            if (Input.GetKeyDown(sprintInput))
+            if (Input.GetKeyDown(sprintInput) && !cc.isDead)
                 cc.Sprint(true);
-            else if(Input.GetKeyUp(sprintInput))
+            else if(Input.GetKeyUp(sprintInput) && !cc.isDead)
                 cc.Sprint(false);
         }
 
         protected virtual void JumpInput()
         {
-            if (Input.GetKeyDown(jumpInput))
+            if (Input.GetKeyDown(jumpInput) &&!cc.isDead)
                 cc.Jump();
         }
 
         protected virtual void Interactive()
         {
-            if (Input.GetKeyDown(interactive))
+            if (Input.GetKeyDown(interactive) && !cc.isDead)
                 cc.InteractiveItem();
         }
 
         protected virtual void ExitGameInput()
         {
             // just a example to quit the application 
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.Escape) && !cc.isDead)
             {
                 if (!Cursor.visible)
                     Cursor.visible = true;
@@ -150,17 +154,17 @@ namespace Invector.CharacterController
 
         protected virtual void CrouchInput()
         {
-            if(Input.GetKeyDown(crouchInput))
+            if(Input.GetKeyDown(crouchInput) && !cc.isDead)
                 cc.Crouch();
         }
 
         protected virtual void FlashUP_and_Down()
         {
-            if (Input.GetKeyDown(flashPoint) && Flash.enabled == true)
+            if (Input.GetKeyDown(flashPoint) && Flash.enabled == true && !cc.isDead)
             {
                 Flash.enabled = false;
             }
-            else if(Input.GetKeyDown(flashPoint) && Flash.enabled == false)
+            else if(Input.GetKeyDown(flashPoint) && Flash.enabled == false && !cc.isDead)
             {
                 Flash.enabled = true;
             }
@@ -168,7 +172,7 @@ namespace Invector.CharacterController
 
         protected virtual void Throw()
         {
-            if (Input.GetKeyDown(throwaway))
+            if (Input.GetKeyDown(throwaway) && !cc.isDead)
             {
                 cc.ThrowItem();
             }
@@ -176,7 +180,7 @@ namespace Invector.CharacterController
 
         protected virtual void changeItem()
         {
-            if (Input.GetKeyDown(changeFile))
+            if (Input.GetKeyDown(changeFile) && !cc.isDead)
             {
                 cc.changeitem();
             }

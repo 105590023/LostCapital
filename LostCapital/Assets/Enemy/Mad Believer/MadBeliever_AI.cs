@@ -41,7 +41,7 @@ public class MadBeliever_AI : MonoBehaviour {
             transform.Translate(new Vector3(0, 0, nsp * Time.deltaTime));
             transform.rotation = Quaternion.LookRotation(nTD);
             if (nsp < 3f) nsp = nsp + 0.3f * Time.deltaTime;
-            print(nsp);
+            //print(nsp);
         }
         if (state == 2) //Attack
         {

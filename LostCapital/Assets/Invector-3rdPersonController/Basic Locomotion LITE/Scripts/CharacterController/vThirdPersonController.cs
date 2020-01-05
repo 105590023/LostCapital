@@ -60,7 +60,7 @@ namespace Invector.CharacterController
                 Debug.Log("NULL");
                 useItem();
             }
-            else if (RayHit.transform.tag == "borad")
+            else if (RayHit.transform.name == "Cylinder")
             {
                 Debug.Log("聽話!讓我看看!");
             }
@@ -70,10 +70,9 @@ namespace Invector.CharacterController
                 Debug.Log(RayHit.transform.name);
 
             }
-            
             else
             {
-                Debug.Log(RayHit.transform.tag);
+                Debug.Log(RayHit.transform.name);
             }
         }
 

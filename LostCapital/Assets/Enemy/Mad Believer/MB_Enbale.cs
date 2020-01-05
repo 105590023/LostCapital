@@ -15,7 +15,7 @@ public class MB_Enbale : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         dis = Vector3.Distance(Target.GetComponent<Transform>().position, transform.position);
-        print(dis);
+        //print(dis);
         if (dis < ddis) MB.SetActive(true);
         else MB.SetActive(false);
     }

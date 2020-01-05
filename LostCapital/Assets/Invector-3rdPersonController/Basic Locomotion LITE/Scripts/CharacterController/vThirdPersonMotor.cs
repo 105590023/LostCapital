@@ -215,7 +215,7 @@ namespace Invector.CharacterController
             Potion_Buff_time = 10.0f,
             use_Postion = 10.0f,
             openDoorTime=-1.0f,
-            openDoor=2.0f,
+            openDoor=7.0f,
             ShadowLeaf_Buff_time = 20.0f,
             use_ShadowLeaf = 20.0f,
             WhiteLily_Buff_time = 5.0f,
@@ -283,12 +283,12 @@ namespace Invector.CharacterController
             else if (RayHit.transform.tag == "Door_L" || RayHit.transform.tag == "Door_R" || RayHit.transform.tag == "IronDoor_R" || RayHit.transform.tag == "IronDoor_L")
             {
                 isReadyOpen = true;
-                Debug.Log("isOpen" + isOpenDoor);
+                Debug.Log("isReadyOpen" + isReadyOpen);
             }
             else
             {
                 isReadyOpen = false;
-                Debug.Log("isOpen" + isOpenDoor);
+                Debug.Log("isReadyOpen" + isReadyOpen);
             }
             if (isReadyOpen && Input.GetKeyDown(KeyCode.E))
             {
@@ -408,7 +408,7 @@ namespace Invector.CharacterController
         #region Trigger
         private void OnTriggerEnter(Collider other)
         {
-            if (other.name == "Key")
+            if (other.tag == "Key")
             {
                 Keynum++;
                 print("Key =" + Keynum);
@@ -442,6 +442,7 @@ namespace Invector.CharacterController
                 }
             }
         }
+
         #endregion
 
         #region Test Ray

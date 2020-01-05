@@ -83,7 +83,7 @@ public class The_Vulture_AI : MonoBehaviour {
         if(Vector3.Distance(Arrow.transform.position, transform.position) < Arrow_Distence)
             {
                 Arrow.SetActive(true);
-                Arrow.transform.Translate(new Vector3(0,0,40f) * Time.deltaTime);
+                Arrow.transform.Translate(new Vector3(0,0,30f) * Time.deltaTime);
             }
 
     }

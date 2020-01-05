@@ -5,7 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - arms
-  - Door
+  - Door_R
+  - Door_L
+  - IronDoor_L
+  - IronDoor_R
   layers:
   - Default
   - TransparentFX

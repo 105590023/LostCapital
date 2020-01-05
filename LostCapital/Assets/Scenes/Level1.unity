@@ -1719,6 +1719,7 @@ MonoBehaviour:
   Rune_stone: rune_stone
   Shadow_leaf: shadow_leaf
   White_lily: white_lily
+  _GameObject: 
   CatEye_Buff_time: 15
   use_CatEye: 15
   Potion_Buff_time: 10
@@ -3047,23 +3048,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.02, y: 0.10163249, z: 0.17966866}
   m_Center: {x: 0, y: 5.820766e-11, z: 0.09000001}
---- !u!1 &450710231 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1173247931657324, guid: 92f026fff5b372949b74d7a5b401795f,
-    type: 2}
-  m_PrefabInternal: {fileID: 1482813217}
---- !u!65 &450710232
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 450710231}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.04613344, y: 0.039952736, z: 0.7504024}
-  m_Center: {x: 0, y: 0.0066587874, z: 0.06959218}
 --- !u!1001 &419444784
 Prefab:
   m_ObjectHideFlags: 0
@@ -3196,6 +3180,23 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &450710231 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1173247931657324, guid: 92f026fff5b372949b74d7a5b401795f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1482813217}
+--- !u!65 &450710232
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 450710231}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.04613344, y: 0.039952736, z: 0.7504024}
+  m_Center: {x: 0, y: 0.0066587874, z: 0.06959218}
 --- !u!1 &456544375
 GameObject:
   m_ObjectHideFlags: 0
@@ -3701,7 +3702,7 @@ Transform:
   m_Children:
   - {fileID: 368398946}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &515693733
 GameObject:
@@ -4010,7 +4011,7 @@ Transform:
   m_LocalScale: {x: 0.0001, y: 1.9226776, z: 1.7194939}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &643665288
 Prefab:
@@ -6180,7 +6181,7 @@ Transform:
   - {fileID: 1310350844}
   - {fileID: 1299593236}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &997887557
 MonoBehaviour:
@@ -6557,6 +6558,115 @@ Transform:
   m_Children: []
   m_Father: {fileID: 257517686}
   m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1067306055
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1067306057}
+  - component: {fileID: 1067306056}
+  m_Layer: 0
+  m_Name: BackgroundMusic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1067306056
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1067306055}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: eef874f3ae2773c49a81d333d0d6ab7f, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!4 &1067306057
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1067306055}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 107.623634, y: 61.579178, z: -41.686714}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1101429772
 GameObject:
@@ -9073,7 +9183,7 @@ Transform:
   - {fileID: 736651468}
   - {fileID: 650511420}
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1589132749
 Prefab:
@@ -9341,7 +9451,7 @@ Transform:
   m_LocalScale: {x: 0.0001, y: 1.9226776, z: 1.7194939}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1627627686
 GameObject:
@@ -11071,7 +11181,7 @@ Transform:
   m_LocalScale: {x: 0.0001, y: 1.9226776, z: 1.7194939}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2060318089
 Prefab:

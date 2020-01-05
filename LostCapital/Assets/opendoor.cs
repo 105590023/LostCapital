@@ -26,14 +26,14 @@ public class opendoor : MonoBehaviour {
         {
 
             _Object = cc.RayHit.transform.name;
-            if(this.transform.tag == "Door_L"||this.transform.tag=="Door_R")
+            if(cc.RayHit.transform.tag == "Door_L"|| cc.RayHit.transform.tag=="Door_R")
                 isOpen = true;
 
-            else if ((this.transform.tag == "IronDoor_L" || this.transform.tag == "IronDoor_R") && cc.Keynum == 0)
+            else if ((cc.RayHit.transform.tag == "IronDoor_L" || cc.RayHit.transform.tag == "IronDoor_R") && cc.Keynum == 0)
             {
                 Debug.Log("你需要鑰匙!!!!");
             }
-            else if((this.transform.tag == "IronDoor_L" || this.transform.tag == "IronDoor_R") && cc.Keynum > 0)
+            else if((cc.RayHit.transform.tag == "IronDoor_L" || cc.RayHit.transform.tag == "IronDoor_R") && cc.Keynum > 0)
             {
                 isOpen = true;
             }

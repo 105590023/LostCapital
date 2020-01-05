@@ -270,14 +270,15 @@ namespace Invector.CharacterController
 
         private void Update()
         {
-            if (RayHit.transform.tag == "Door_L" || RayHit.transform.tag == "Door_R"|| RayHit.transform.tag == "IronDoor_R"|| RayHit.transform.tag == "IronDoor_L")
-            {
-                isOpenDoor = true;
-                Debug.Log("isOpen" + isOpenDoor);
-            }
-            else if(RayHit.transform.tag ==null)
+            
+            if(RayHit.transform.tag ==null)
             {
                 isOpenDoor = false;
+                Debug.Log("isOpen" + isOpenDoor);
+            }
+            else if (RayHit.transform.tag == "Door_L" || RayHit.transform.tag == "Door_R" || RayHit.transform.tag == "IronDoor_R" || RayHit.transform.tag == "IronDoor_L")
+            {
+                isOpenDoor = true;
                 Debug.Log("isOpen" + isOpenDoor);
             }
             else

@@ -12,6 +12,6 @@ public class BrightPowerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		this.transform.localPosition = new Vector3((-221 + 221 * (power/MaxPower)), 0.0f, 0.0f);
+		this.transform.localPosition = new Vector3((-221 + 221 * ((power -= 10 * Time.deltaTime) /MaxPower)), 0.0f, 0.0f);
 	}
 }
